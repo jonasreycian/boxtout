@@ -1,18 +1,18 @@
-import 'package:customer/app/app.logger.dart';
+import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:customer/constants/app_keys.dart';
-import 'package:customer/exceptions/firestore_api_exception.dart';
-import 'package:customer/models/application_models.dart';
+
+import '../app/app.logger.dart';
+import '../constants/app_keys.dart';
+import '../exceptions/firestore_api_exception.dart';
+import '../models/application_models.dart';
 
 class FirestoreApi {
   final log = getLogger('FirestoreApi');
 
-  final CollectionReference usersCollection =
-      FirebaseFirestore.instance.collection(UsersFirestoreKey);
+  final CollectionReference usersCollection = FirebaseFirestore.instance.collection(UsersFirestoreKey);
 
-  final CollectionReference regionsCollection =
-      FirebaseFirestore.instance.collection(RegionsFirestoreKey);
+  final CollectionReference regionsCollection = FirebaseFirestore.instance.collection(RegionsFirestoreKey);
 
   Future<void> createUser({required User user}) async {
     log.i('user:$user');
@@ -39,14 +39,12 @@ class FirestoreApi {
         return null;
       }
 
-      final userData = userDoc.data();
+      final userData = userDoc.data() as Map<String, dynamic>;
       log.v('User found. Data: $userData');
 
-      return User.fromJson(userData!);
+      return User.fromJson(userData);
     } else {
-      throw FirestoreApiException(
-          message:
-              'Your userId passed in is empty. Please pass in a valid user if from your Firebase user.');
+      throw FirestoreApiException(message: 'Your userId passed in is empty. Please pass in a valid user if from your Firebase user.');
     }
   }
 
@@ -74,8 +72,7 @@ class FirestoreApi {
       log.v('Address save complete. hasDefaultAddress:$hasDefaultAddress');
 
       if (!hasDefaultAddress) {
-        log.v(
-            'This user has no default address. We need to set the current one as default');
+        log.v('This user has no default address. We need to set the current one as default');
 
         await usersCollection.doc(user.id).set(
               user.copyWith(defaultAddress: newAddressId).toJson(),
