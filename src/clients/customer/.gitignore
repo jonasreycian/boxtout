@@ -31,6 +31,9 @@
 .pub/
 /build/
 
+# FlutterFire Generated Files
+firebase*
+
 # Web related
 lib/generated_plugin_registrant.dart
 

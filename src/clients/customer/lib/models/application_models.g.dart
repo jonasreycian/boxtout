@@ -6,34 +6,30 @@ part of 'application_models.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_User _$_$_UserFromJson(Map<String, dynamic> json) {
-  return _$_User(
-    id: json['id'] as String,
-    email: json['email'] as String?,
-    defaultAddress: json['defaultAddress'] as String?,
-  );
-}
+_$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
+      id: json['id'] as String,
+      email: json['email'] as String?,
+      defaultAddress: json['defaultAddress'] as String?,
+    );
 
-Map<String, dynamic> _$_$_UserToJson(_$_User instance) => <String, dynamic>{
+Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{
       'id': instance.id,
       'email': instance.email,
       'defaultAddress': instance.defaultAddress,
     };
 
-_$_Address _$_$_AddressFromJson(Map<String, dynamic> json) {
-  return _$_Address(
-    id: json['id'] as String?,
-    placeId: json['placeId'] as String,
-    lattitude: (json['lattitude'] as num).toDouble(),
-    longitute: (json['longitute'] as num).toDouble(),
-    street: json['street'] as String?,
-    city: json['city'] as String?,
-    state: json['state'] as String?,
-    postalCode: json['postalCode'] as String?,
-  );
-}
+_$_Address _$$_AddressFromJson(Map<String, dynamic> json) => _$_Address(
+      id: json['id'] as String?,
+      placeId: json['placeId'] as String,
+      lattitude: (json['lattitude'] as num).toDouble(),
+      longitute: (json['longitute'] as num).toDouble(),
+      street: json['street'] as String?,
+      city: json['city'] as String?,
+      state: json['state'] as String?,
+      postalCode: json['postalCode'] as String?,
+    );
 
-Map<String, dynamic> _$_$_AddressToJson(_$_Address instance) =>
+Map<String, dynamic> _$$_AddressToJson(_$_Address instance) =>
     <String, dynamic>{
       'id': instance.id,
       'placeId': instance.placeId,
