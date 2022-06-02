@@ -8,6 +8,7 @@ import 'package:stacked_services/stacked_services.dart';
 
 import 'app/app.locator.dart';
 import 'app/app.router.dart';
+import 'ui/login/login_view.dart';
 
 const bool USE_EMULATOR = true;
 
@@ -33,7 +34,7 @@ Future _connectToFirebaseEmulator() async {
     persistenceEnabled: false,
   );
 
-  await FirebaseAuth.instance.useEmulator('http://$localHostString:9099');
+  await FirebaseAuth.instance.useAuthEmulator(localHostString, 9099);
 }
 
 class MyApp extends StatelessWidget {
@@ -47,7 +48,7 @@ class MyApp extends StatelessWidget {
       ),
       navigatorKey: StackedService.navigatorKey,
       onGenerateRoute: StackedRouter().onGenerateRoute,
-      // home: LoginView(),
+      home: LoginView(),
     );
   }
 }
