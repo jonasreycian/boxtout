@@ -4,12 +4,11 @@ src/clients/customer/.env
 
 **/.firebaserc
 
-**/flutter/generated_plugin_registrant.cc
-**/flutter/generated_plugin_registrant.h
-**/flutter/generated_plugins.cmake
-**/Flutter/GeneratedPluginRegistrant.swift
+**/generated_plugin_registrant.cc
+**/generated_plugin_registrant.h
+**/generated_plugins.cmake
+**/GeneratedPluginRegistrant.swift
 
 **/.plugin_symlinks/**
-
 
 **/pubspec.lock
