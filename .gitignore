@@ -8,3 +8,8 @@ src/clients/customer/.env
 **/flutter/generated_plugin_registrant.h
 **/flutter/generated_plugins.cmake
 **/Flutter/GeneratedPluginRegistrant.swift
+
+**/.plugin_symlinks/**
+
+
+**/pubspec.lock
